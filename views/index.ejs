@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>To Do List</h1>
+
+    <form action="/add" method="post">
+        <input type="text" name="name" placeholder="Nome">
+        <button type="submit" name="submit">Add</button>
+    </form>
+
+    <form action="/delete" method="get">
+        <div class="container">
+            <table style="width: 200px; margin-top: 2vh;">
+                <tr>
+                    <th>Tarefa</th>
+                </tr>
+                <%if(List != '') { %>
+                    <% List.forEach(function(List, index) { %>
+                        <tr style="display: flex; justify-content: center; align-items: center;">
+                            <td name="message"><%-List.name %></td>
+                            <td><button type="submit" name="delete">Delete</button></td>
+                        </tr>
+                    <% }) %>
+                <% } %>
+            </table>
+        </div>
+
+    </form>
+    
+
+<script src="/js/script.js"></script>
+</body>
+</html>
